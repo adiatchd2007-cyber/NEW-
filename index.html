@@ -21,7 +21,6 @@ body{
  overflow:hidden;
 }
 
-/* pages */
 .page{
  position:absolute;
  inset:0;
@@ -85,7 +84,6 @@ button:hover{transform:scale(1.1)}
  text-shadow:0 0 25px rgba(255,47,146,.9);
 }
 
-/* fireflies */
 .firefly{
  position:fixed;
  width:6px;
@@ -98,7 +96,6 @@ button:hover{transform:scale(1.1)}
 }
 @keyframes fade{to{opacity:0;transform:scale(0)}}
 
-/* cursor glitter */
 .cursor-glitter{
  position:fixed;
  width:8px;
@@ -112,7 +109,6 @@ button:hover{transform:scale(1.1)}
 }
 @keyframes glitterFade{to{transform:scale(0);opacity:0}}
 
-/* heartbeat */
 @keyframes beat{
  0%{transform:scale(1)}
  50%{transform:scale(1.15)}
@@ -120,7 +116,6 @@ button:hover{transform:scale(1.1)}
 }
 .heartbeat{animation:beat 1s infinite}
 
-/* proposal */
 .proposal-btns{
  display:flex;
  justify-content:center;
@@ -129,45 +124,48 @@ button:hover{transform:scale(1.1)}
 }
 #noBtn{position:relative}
 
-/* ring */
 #ring{
  font-size:64px;
  display:none;
  animation:beat 1s infinite;
  text-shadow:0 0 25px gold;
 }
+
+#musicBtn{
+ position:fixed;
+ bottom:20px;
+ right:20px;
+ z-index:9999;
+}
 </style>
 </head>
 
 <body>
 
-<!-- PAGE 1 -->
 <div class="page active">
  <h1 id="type"></h1>
  <h2>9 January 2021</h2>
  <button onclick="nextPage()">CLICK 💕</button>
 </div>
 
-<!-- PAGE 2 -->
 <div class="page">
  <div class="glass">
   <h2>💑 Our Journey</h2>
   <p>
-   🌌 In a dark and chaotic world, you became my favorite color 🎨, 
+   🌌 In a dark and chaotic world, you became my favorite color 🎨,
    the light ✨ I never knew I was searching for 💫.
-  🤍 Your presence softened my fears, healed silent wounds 💞, 
+   🤍 Your presence softened my fears, healed silent wounds 💞,
    and filled my days with warmth 🌸 and meaning 🌷.
-  💭 I never imagined someone could matter this deeply to me, 
-  yet here you are—changing my heart ❤️, my thoughts 🫶,
-  and my life 🌍 in the most beautiful way 🌹.
-  🌙 With you, even darkness feels gentle, 
-  because love 💖 has your name written all over it ♾️💖 
+   💭 I never imagined someone could matter this deeply to me,
+   yet here you are—changing my heart ❤️, my thoughts 🫶,
+   and my life 🌍 in the most beautiful way 🌹.
+   🌙 With you, even darkness feels gentle,
+   because love 💖 has your name written all over it ♾️💖
   </p>
  </div>
  <button onclick="nextPage()">Next 💖</button>
 </div>
 
-<!-- PAGE 3 -->
 <div class="page">
  <h2>📸 Photo Memories</h2>
  <div class="gallery">
@@ -183,7 +181,6 @@ button:hover{transform:scale(1.1)}
  <button onclick="nextPage()">Next 💕</button>
 </div>
 
-<!-- PAGE 4 -->
 <div class="page">
  <h2>🎥 Video Memory</h2>
  <div class="glass">
@@ -194,14 +191,12 @@ button:hover{transform:scale(1.1)}
  <button onclick="nextPage()">Next 💘</button>
 </div>
 
-<!-- PAGE 5 CAKE -->
 <div class="page" id="cakePage">
  <div id="cake" class="heartbeat" style="font-size:48px">🎂🕯️🕯️</div>
  <p id="cakeMsg"></p>
  <button onclick="nextPage()">Next ❤️</button>
 </div>
 
-<!-- PAGE 6 SHAYARI -->
 <div class="page">
  <p>
  💞In duriyo ko karke dur tumhare paas aana chahta hu💞<br>
@@ -212,14 +207,11 @@ button:hover{transform:scale(1.1)}
  <button onclick="nextPage()">Next 💍</button>
 </div>
 
-<!-- PAGE 7 PROPOSAL -->
 <div class="page heartbeat">
  <h2>Will you be mine forever? 💍</h2>
  <div class="proposal-btns">
   <button onclick="yes()">YES 💖</button>
-  <button id="noBtn"
-    onmouseover="moveNo()"
-    ontouchstart="moveNo()">NO 😜</button>
+  <button id="noBtn" onmouseover="moveNo()" ontouchstart="moveNo()">NO 😜</button>
  </div>
  <div id="ring">💍</div>
  <p id="proposalMsg"></p>
@@ -243,7 +235,22 @@ setInterval(()=>{
 let page=0;
 const pages=document.querySelectorAll(".page");
 
+/* 🔥 MUSIC FIX */
+let musicStarted=false;
+function startMusic(){
+ if(musicStarted) return;
+ const m=document.getElementById("bgMusic");
+ const b=document.getElementById("musicBtn");
+ m.volume=0.7;
+ m.play().then(()=>{
+  b.innerText="🔇 Pause Music";
+  musicStarted=true;
+ }).catch(()=>{});
+}
+
 function nextPage(){
+ startMusic();
+
  pages[page].classList.remove("active");
  page++;
  if(page<pages.length) pages[page].classList.add("active");
@@ -278,18 +285,17 @@ document.addEventListener("mousemove",e=>{
  setTimeout(()=>g.remove(),900);
 });
 
-/* music */
+/* music button */
 function toggleMusic(){
-  const m = document.getElementById("bgMusic");
-  const b = document.getElementById("musicBtn");
-
-  if (m.paused) {
-    m.play();
-    b.innerText = "🔇 Pause Music";
-  } else {
-    m.pause();
-    b.innerText = "🔊 Play Music";
-  }
+ const m=document.getElementById("bgMusic");
+ const b=document.getElementById("musicBtn");
+ if(m.paused){
+  m.play();
+  b.innerText="🔇 Pause Music";
+ }else{
+  m.pause();
+  b.innerText="🔊 Play Music";
+ }
 }
 
 /* proposal */
@@ -300,8 +306,7 @@ function yes(){
 }
 
 function moveNo(){
- const b=noBtn;
- b.style.transform=`translate(${Math.random()*200-100}px,${Math.random()*200-100}px)`;
+ noBtn.style.transform=`translate(${Math.random()*200-100}px,${Math.random()*200-100}px)`;
 }
 </script>
 
