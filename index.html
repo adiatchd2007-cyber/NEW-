@@ -141,6 +141,13 @@ button:hover{transform:scale(1.1)}
 
 <body>
 
+ <!-- BACKGROUND MUSIC -->
+ 
+<button onclick="toggleMusic()" id="musicBtn">🔊 Play Music</button>
+<audio id="bgMusic" loop>
+ <source src="love.mp3" type="audio/mpeg">
+</audio>
+
 <!-- PAGE 1 -->
 <div class="page active">
  <h1 id="type"></h1>
@@ -224,12 +231,6 @@ button:hover{transform:scale(1.1)}
  <div id="ring">💍</div>
  <p id="proposalMsg"></p>
 </div>
-
-<button onclick="toggleMusic()" id="musicBtn">🔊 Play Music</button>
-
-<audio id="bgMusic" loop>
- <source src="love.mp3" type="audio/mpeg">
-</audio>
  
 <script>
 /* typing */
@@ -278,9 +279,10 @@ document.addEventListener("mousemove",e=>{
  setTimeout(()=>g.remove(),900);
 });
 
-/* music */
+/* BACKGROUND MUSIC */
 function playMusic(){
    document.getElementByID("bgMusic").play();
+ music.play();
 }
 
 /* proposal */
@@ -298,4 +300,5 @@ function moveNo(){
 
 </body>
 </html>
+
 
