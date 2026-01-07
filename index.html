@@ -142,11 +142,15 @@ button:hover{transform:scale(1.1)}
 <body>
 
  <!-- BACKGROUND MUSIC -->
- 
-<button onclick="toggleMusic()" id="musicBtn">🔊 Play Music</button>
-<audio id="bgMusic" loop>
+ <audio id="bgMusic" loop>
  <source src="love.mp3" type="audio/mpeg">
 </audio>
+
+ <!-- Play Button -->
+ <button id="musicBtn"
+  onclick="startMusic()">
+      Play Music
+ </button>
 
 <!-- PAGE 1 -->
 <div class="page active">
@@ -233,6 +237,11 @@ button:hover{transform:scale(1.1)}
 </div>
  
 <script>
+
+ function startMusic()  {
+  const music =document.getElementByID("bgMusic");
+  music.play();
+ }
 /* typing */
 const text="A Love Story That Began On";
 let i=0;
@@ -279,10 +288,6 @@ document.addEventListener("mousemove",e=>{
  setTimeout(()=>g.remove(),900);
 });
 
-/* BACKGROUND MUSIC */
-function playMusic(){
-   document.getElementByID("bgMusic").play();
- music.play();
 }
 
 /* proposal */
@@ -300,5 +305,6 @@ function moveNo(){
 
 </body>
 </html>
+
 
 
