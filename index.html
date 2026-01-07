@@ -55,6 +55,21 @@ button{
  margin:16px;
 }
 button:hover{transform:scale(1.1)}
+ /* music button */
+#musicBtn{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 18px;
+  font-size: 16px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(45deg, #ff4d6d, #ff85a1);
+  color: white;
+  box-shadow: 0 0 15px rgba(255,77,109,0.6);
+  z-index: 9999;
+}
 
 .glass{
  background:rgba(255,20,120,.12);
@@ -280,16 +295,17 @@ document.addEventListener("mousemove",e=>{
 
 /* music */
 function toggleMusic(){
-  const m = document.getElementById("bgMusic");
-  const b = document.getElementById("musicBtn");
+  const music = document.getElementById("bgMusic");
+  const btn = document.getElementById("musicBtn");
 
-  if (m.paused) {
-    m.play();
-    b.innerText = "🔇 Pause Music";
+  if (music.paused) {
+    music.play();
+    btn.innerText = "🔇 Pause Music";
   } else {
-    m.pause();
-    b.innerText = "🔊 Play Music";
+    music.pause();
+    btn.innerText = "🔊 Play Music";
   }
+}
 }
 
 /* proposal */
@@ -307,4 +323,5 @@ function moveNo(){
 
 </body>
 </html>
+
 
