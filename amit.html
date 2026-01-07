@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Amit ❤️ Khushi | Forever</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ff2f92">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Great+Vibes&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+/* 🌑 DARK BLACK + PINK LOVE THEME */
+body{
+ font-family:Poppins,sans-serif;
+ background:
+  radial-gradient(circle at top, rgba(255,47,146,.18), transparent 60%),
+  radial-gradient(circle at bottom, rgba(255,105,180,.12), transparent 60%),
+  #000;
+ color:#ffe6f2;
+ overflow:hidden;
+}
+
+/* pages */
+.page{
+ position:absolute;
+ inset:0;
+ display:none;
+ padding:80px 20px;
+ text-align:center;
+ animation:fadeSlide .9s ease;
+}
+.page.active{display:block}
+
+@keyframes fadeSlide{
+ from{opacity:0;transform:translateY(35px)}
+ to{opacity:1;transform:none}
+}
+
+h1,h2{
+ font-family:'Playfair Display',serif;
+ color:#ff7abf;
+}
+
+/* 💗 Buttons */
+button{
+ background:linear-gradient(45deg,#ff2f92,#ff79c6);
+ border:none;
+ padding:12px 34px;
+ border-radius:30px;
+ font-size:16px;
+ cursor:pointer;
+ color:#000;
+ box-shadow:0 0 28px rgba(255,47,146,.85);
+ transition:.4s;
+ margin:18px;
+}
+button:hover{
+ transform:scale(1.12);
+ box-shadow:0 0 40px rgba(255,47,146,1);
+}
+
+/* 💎 Glass cards */
+.glass{
+ background:rgba(255,20,120,.12);
+ backdrop-filter:blur(18px);
+ border-radius:24px;
+ padding:26px;
+ box-shadow:
+ 0 0 35px rgba(255,47,146,.55),
+ inset 0 0 25px rgba(255,120,180,.15);
+ max-width:850px;
+ margin:auto;
+}
+
+.timeline{text-align:left;max-width:600px;margin:auto}
+.timeline div{
+ margin:18px 0;
+ color:#ffd6ea;
+}
+
+.gallery{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+ gap:16px;
+}
+
+.card img, video{
+ width:100%;
+ border-radius:16px;
+ box-shadow:0 0 20px rgba(255,47,146,.45);
+}
+
+.letter{
+ font-family:'Great Vibes',cursive;
+ font-size:34px;
+ color:#ffb3d9;
+}
+
+.infinity{
+ font-size:64px;
+ color:#ff2f92;
+ text-shadow:0 0 25px rgba(255,47,146,.9);
+}
+
+/* ✨ Pink fireflies */
+.firefly{
+ position:fixed;
+ width:6px;
+ height:6px;
+ background:#ff79c6;
+ border-radius:50%;
+ pointer-events:none;
+ box-shadow:0 0 12px #ff2f92;
+ animation:fade 1s forwards;
+}
+@keyframes fade{
+ to{opacity:0;transform:scale(0)}
+}
+
+/* ❤️ heartbeat */
+@keyframes beat{
+ 0%{transform:scale(1)}
+ 50%{transform:scale(1.15)}
+ 100%{transform:scale(1)}
+}
+.beat{animation:beat 1s infinite}
+/* ✨ Cursor Glitter Effect */
+.cursor-glitter{
+ position:fixed;
+ width:8px;
+ height:8px;
+ background:radial-gradient(circle,#ff79c6,#ff2f92);
+ border-radius:50%;
+ pointer-events:none;
+ box-shadow:0 0 15px #ff2f92, 0 0 30px #ff79c6;
+ animation:glitterFade .9s forwards;
+ z-index:9999;
+}
+
+@keyframes glitterFade{
+ to{
+  transform:scale(0);
+  opacity:0;
+ }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div class="page active">
+ <h1 id="type"></h1>
+ <h2>9 January 2021</h2>
+ <button onclick="nextPage()">CLICK💕</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+ <div class="glass">
+  <h2>💑 Our Journey</h2>
+  <div class="timeline">
+   <div>In a dark and chaotic world, you became my favorite color, the light I never knew I was searching for. Your presence softened my fears, healed silent wounds, and filled my days with warmth and meaning. I never imagined someone could matter this deeply to me, yet here you are—changing my heart, my thoughts, and my life in the most beautiful way. With you, even darkness feels gentle, because love has your name written all over it. ♾️💖</div>
+  </div>
+ </div>
+ <button onclick="nextPage()">Next 💖</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+ <h2>📸 Photo Memories</h2>
+ <div class="gallery">
+  <div class="glass card">
+   <img src="photo1.jpg">
+   <p>That smile 💗</p>
+  </div>
+  <div class="glass card">
+   <img src="photo2.jpg">
+   <p>My safe place</p>
+  </div>
+ </div>
+ <button onclick="nextPage()">Next 💕</button>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page">
+ <h2>🎥 Video Memory</h2>
+ <div class="glass">
+  <video controls>
+   <source src="memory.mp4" type="video/mp4">
+  </video>
+  <p>THE MEMORIES WE WILL NEVER FORGET 🖤💗</p>
+ </div>
+ <button onclick="nextPage()">Next 💘</button>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page">
+ <div class="cake beat" onclick="blow()">🎂🕯️🕯️</div><br>
+ <button onclick="cutCake()">Cut the Cake 🎉</button>
+ <p id="cakeMsg"></p>
+ <button onclick="nextPage()">Next ❤️</button>
+</div>
+
+<!-- PAGE 6 -->
+<div class="page">
+ <div class="">
+  <div class="Arial Black ">
+
+
+
+<p>
+💞In Duriyo ko krke dur tumhare pass aana chahta hu💞<br>
+💞Tere in pyare Hatho ka pyaar chahta hu💞<br>
+💞chahe ruthi rhe mujhse yeh sari duniya💞<br>
+💞mai toh bs tumhara hi sath chahta hu 💞
+</p>
+
+</div>
+
+ <button onclick="nextPage()">Next ♾️</button>
+</div>
+
+<!-- PAGE 7 -->
+<div class="page">
+ <div class="infinity">♾️</div>
+ <h2>Still proposing you… forever.</h2>
+ <button onclick="goToMemories()">Back to Memories 💞</button>
+</div>
+<button onclick="toggleMusic()">🔊 Music</button>
+
+<audio id="bgMusic" loop>
+  <source src="audio/love.mp3" type="audio/mpeg">
+</audio>
+
+
+<script>
+/* typing */
+const text="A Love Story That Began On";
+let i=0;
+setInterval(()=>{
+ if(i<text.length) document.getElementById("type").innerHTML+=text[i++];
+},90);
+
+/* pages */
+let page=0;
+const pages=document.querySelectorAll(".page");
+
+function nextPage(){
+ pages[page].classList.remove("active");
+ page++;
+ if(page<pages.length) pages[page].classList.add("active");
+}
+
+function goToMemories(){
+ pages[page].classList.remove("active");
+ page=2;
+ pages[page].classList.add("active");
+}
+
+/* cake */
+function cutCake(){
+ document.getElementById("cakeMsg").innerText=" OUR LOVE STORY 💗";
+ confetti();
+}
+function blow(){
+ document.getElementById("cakeMsg").innerText="My forever wish… you 🖤";
+}
+
+/* confetti */
+function confetti(){
+ for(let i=0;i<60;i++){
+  let f=document.createElement("div");
+  f.className="firefly";
+  f.style.left=Math.random()*100+"vw";
+  f.style.top=Math.random()*100+"vh";
+  document.body.appendChild(f);
+  setTimeout(()=>f.remove(),1000);
+ }
+}
+/* ✨ Cursor Glitter Effect */
+document.addEventListener("mousemove", e => {
+ const g = document.createElement("div");
+ g.className = "cursor-glitter";
+ g.style.left = e.clientX + "px";
+ g.style.top = e.clientY + "px";
+ document.body.appendChild(g);
+ setTimeout(() => g.remove(), 900);
+});
+  }
+function toggleMusic(){
+  const music = document.getElementById("bgMusic");
+  if(music.paused){
+    music.play();
+  }else{
+    music.pause();
+  
+}
+
+</script>
+
+</body>
+</html>
