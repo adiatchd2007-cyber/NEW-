@@ -230,7 +230,7 @@ button:hover{transform:scale(1.1)}
 <audio id="bgMusic" loop>
  <source src="love.mp3" type="audio/mpeg">
 </audio>
-
+ 
 <script>
 /* typing */
 const text="A Love Story That Began On";
@@ -279,10 +279,8 @@ document.addEventListener("mousemove",e=>{
 });
 
 /* music */
-function toggleMusic(){
- const m=bgMusic, b=musicBtn;
- if(m.paused){m.play();b.innerText="🔇 Pause Music";}
- else{m.pause();b.innerText="🔊 Play Music";}
+function playMusic(){
+   document.getElementByID("bgMusic").play();
 }
 
 /* proposal */
@@ -300,3 +298,4 @@ function moveNo(){
 
 </body>
 </html>
+
