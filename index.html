@@ -280,9 +280,16 @@ document.addEventListener("mousemove",e=>{
 
 /* music */
 function toggleMusic(){
- const m=bgMusic, b=musicBtn;
- if(m.paused){m.play();b.innerText="🔇 Pause Music";}
- else{m.pause();b.innerText="🔊 Play Music";}
+  const m = document.getElementById("bgMusic");
+  const b = document.getElementById("musicBtn");
+
+  if (m.paused) {
+    m.play();
+    b.innerText = "🔇 Pause Music";
+  } else {
+    m.pause();
+    b.innerText = "🔊 Play Music";
+  }
 }
 
 /* proposal */
@@ -300,3 +307,4 @@ function moveNo(){
 
 </body>
 </html>
+
