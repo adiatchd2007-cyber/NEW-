@@ -21,6 +21,7 @@ body{
  overflow:hidden;
 }
 
+/* pages */
 .page{
  position:absolute;
  inset:0;
@@ -44,19 +45,16 @@ h1,h2{
 button{
  background:linear-gradient(45deg,#ff2f92,#ff79c6);
  border:none;
- padding:12px 34px;
+ padding:14px 36px;
  border-radius:30px;
  font-size:16px;
  cursor:pointer;
  color:#000;
  box-shadow:0 0 28px rgba(255,47,146,.85);
- transition:.4s;
- margin:18px;
+ transition:.3s;
+ margin:16px;
 }
-button:hover{
- transform:scale(1.12);
- box-shadow:0 0 40px rgba(255,47,146,1);
-}
+button:hover{transform:scale(1.1)}
 
 .glass{
  background:rgba(255,20,120,.12);
@@ -68,8 +66,6 @@ button:hover{
  max-width:850px;
  margin:auto;
 }
-
-.timeline{text-align:left;max-width:600px;margin:auto}
 
 .gallery{
  display:grid;
@@ -89,6 +85,7 @@ button:hover{
  text-shadow:0 0 25px rgba(255,47,146,.9);
 }
 
+/* fireflies */
 .firefly{
  position:fixed;
  width:6px;
@@ -99,10 +96,9 @@ button:hover{
  box-shadow:0 0 12px #ff2f92;
  animation:fade 1s forwards;
 }
-@keyframes fade{
- to{opacity:0;transform:scale(0)}
-}
+@keyframes fade{to{opacity:0;transform:scale(0)}}
 
+/* cursor glitter */
 .cursor-glitter{
  position:fixed;
  width:8px;
@@ -114,47 +110,80 @@ button:hover{
  animation:glitterFade .9s forwards;
  z-index:9999;
 }
-@keyframes glitterFade{
- to{transform:scale(0);opacity:0}
+@keyframes glitterFade{to{transform:scale(0);opacity:0}}
+
+/* heartbeat */
+@keyframes beat{
+ 0%{transform:scale(1)}
+ 50%{transform:scale(1.15)}
+ 100%{transform:scale(1)}
+}
+.heartbeat{animation:beat 1s infinite}
+
+/* proposal */
+.proposal-btns{
+ display:flex;
+ justify-content:center;
+ gap:20px;
+ flex-wrap:wrap;
+}
+#noBtn{position:relative}
+
+/* ring */
+#ring{
+ font-size:64px;
+ display:none;
+ animation:beat 1s infinite;
+ text-shadow:0 0 25px gold;
 }
 </style>
 </head>
 
 <body>
 
+<!-- PAGE 1 -->
 <div class="page active">
  <h1 id="type"></h1>
  <h2>9 January 2021</h2>
  <button onclick="nextPage()">CLICK 💕</button>
 </div>
 
+<!-- PAGE 2 -->
 <div class="page">
  <div class="glass">
   <h2>💑 Our Journey</h2>
-  <div class="timeline">
-   <div>
-In a dark and chaotic world, you became my favorite color, the light I never knew I was searching for...
-   </div>
-  </div>
+  <p>
+   🌌 In a dark and chaotic world, you became my favorite color 🎨, 
+   the light ✨ I never knew I was searching for 💫.
+  🤍 Your presence softened my fears, healed silent wounds 💞, 
+   and filled my days with warmth 🌸 and meaning 🌷.
+  💭 I never imagined someone could matter this deeply to me, 
+  yet here you are—changing my heart ❤️, my thoughts 🫶,
+  and my life 🌍 in the most beautiful way 🌹.
+  🌙 With you, even darkness feels gentle, 
+  because love 💖 has your name written all over it ♾️💖.
+  </p>
  </div>
  <button onclick="nextPage()">Next 💖</button>
 </div>
 
+<!-- PAGE 3 -->
 <div class="page">
  <h2>📸 Photo Memories</h2>
  <div class="gallery">
   <div class="glass card">
-   <img src="photo1.jpg.jpeg">
+   <img src="photo1.jpg">
    <p>That smile 💗</p>
   </div>
   <div class="glass card">
-   <img src="photo2.jpg.jpeg">
+   <img src="photo2.jpg">
    <p>My safe place</p>
   </div>
  </div>
  <button onclick="nextPage()">Next 💕</button>
 </div>
 
+<!-- PAGE 4 -->
 <div class="page">
  <h2>🎥 Video Memory</h2>
  <div class="glass">
@@ -165,25 +194,52 @@ In a dark and chaotic world, you became my favorite color, the light I never kne
  <button onclick="nextPage()">Next 💘</button>
 </div>
 
-<div class="page">
- <div class="infinity">♾️</div>
- <h2>Still proposing you… forever.</h2>
- <button onclick="goToMemories()">Back to Memories 💞</button>
+<!-- PAGE 5 CAKE -->
+<div class="page" id="cakePage">
+ <div id="cake" class="heartbeat" style="font-size:48px">🎂🕯️🕯️</div>
+ <p id="cakeMsg"></p>
+ <button onclick="nextPage()">Next ❤️</button>
 </div>
 
-<button onclick="toggleMusic()">🔊 Music</button>
+<!-- PAGE 6 SHAYARI -->
+<div class="page">
+ <p>
+ 💞In duriyo ko karke dur tumhare paas aana chahta hu💞<br>
+ 💞Tere in pyare haatho ka pyaar chahta hu💞<br>
+ 💞Chahe ruthi rahe mujhse ye saari duniya💞<br>
+ 💞Main toh bas tumhara hi saath chahta hu💞
+ </p>
+ <button onclick="nextPage()">Next 💍</button>
+</div>
+
+<!-- PAGE 7 PROPOSAL -->
+<div class="page heartbeat">
+ <h2>Will you be mine forever? 💍</h2>
+ <div class="proposal-btns">
+  <button onclick="yes()">YES 💖</button>
+  <button id="noBtn"
+    onmouseover="moveNo()"
+    ontouchstart="moveNo()">NO 😜</button>
+ </div>
+ <div id="ring">💍</div>
+ <p id="proposalMsg"></p>
+</div>
+
+<button onclick="toggleMusic()" id="musicBtn">🔊 Play Music</button>
 
 <audio id="bgMusic" loop>
  <source src="love.mp3" type="audio/mpeg">
 </audio>
 
 <script>
+/* typing */
 const text="A Love Story That Began On";
 let i=0;
 setInterval(()=>{
  if(i<text.length) document.getElementById("type").innerHTML+=text[i++];
 },90);
 
+/* pages */
 let page=0;
 const pages=document.querySelectorAll(".page");
 
@@ -191,15 +247,29 @@ function nextPage(){
  pages[page].classList.remove("active");
  page++;
  if(page<pages.length) pages[page].classList.add("active");
+
+ if(pages[page]?.id==="cakePage"){
+  setTimeout(()=>{
+   cake.innerText="🎂💨";
+   cakeMsg.innerText="My forever wish… you 🖤";
+   confetti();
+  },3000);
+ }
 }
 
-function goToMemories(){
- pages[page].classList.remove("active");
- page=2;
- pages[page].classList.add("active");
+/* effects */
+function confetti(){
+ for(let i=0;i<60;i++){
+  let f=document.createElement("div");
+  f.className="firefly";
+  f.style.left=Math.random()*100+"vw";
+  f.style.top=Math.random()*100+"vh";
+  document.body.appendChild(f);
+  setTimeout(()=>f.remove(),1000);
+ }
 }
 
-document.addEventListener("mousemove", e=>{
+document.addEventListener("mousemove",e=>{
  const g=document.createElement("div");
  g.className="cursor-glitter";
  g.style.left=e.clientX+"px";
@@ -208,9 +278,23 @@ document.addEventListener("mousemove", e=>{
  setTimeout(()=>g.remove(),900);
 });
 
+/* music */
 function toggleMusic(){
- const music=document.getElementById("bgMusic");
- music.paused ? music.play() : music.pause();
+ const m=bgMusic, b=musicBtn;
+ if(m.paused){m.play();b.innerText="🔇 Pause Music";}
+ else{m.pause();b.innerText="🔊 Play Music";}
+}
+
+/* proposal */
+function yes(){
+ ring.style.display="block";
+ proposalMsg.innerText="Engaged Forever ♾️💖";
+ confetti();
+}
+
+function moveNo(){
+ const b=noBtn;
+ b.style.transform=`translate(${Math.random()*200-100}px,${Math.random()*200-100}px)`;
 }
 </script>
 
