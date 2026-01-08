@@ -2,311 +2,266 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Amit ❤️ Khushi | Forever</title>
+<title>Forever Love ❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#ff2f92">
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Great+Vibes&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
 body{
- font-family:Poppins,sans-serif;
- background:
-  radial-gradient(circle at top, rgba(255,47,146,.18), transparent 60%),
-  radial-gradient(circle at bottom, rgba(255,105,180,.12), transparent 60%),
-  #000;
- color:#ffe6f2;
- overflow:hidden;
+background:radial-gradient(circle at bottom,#2b0033,#000);
+color:#fff;
+overflow:hidden;
 }
 
+/* STARS */
+.star{
+position:fixed;
+width:2px;
+height:2px;
+background:white;
+opacity:0.8;
+animation:twinkle 3s infinite alternate;
+}
+@keyframes twinkle{from{opacity:.3}to{opacity:1}}
+
+/* PAGE */
 .page{
- position:absolute;
- inset:0;
- display:none;
- padding:80px 20px;
- text-align:center;
- animation:fadeSlide .9s ease;
+width:100vw;height:100vh;
+display:none;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
 }
-.page.active{display:block}
+.page.active{display:flex;animation:fade 1s}
+@keyframes fade{from{opacity:0;transform:scale(.95)}to{opacity:1}}
 
-@keyframes fadeSlide{
- from{opacity:0;transform:translateY(35px)}
- to{opacity:1;transform:none}
-}
+/* TEXT */
+h1{color:#ffb3d9;margin-bottom:10px}
+p{max-width:600px;line-height:1.6;color:#ffd6eb}
 
-h1,h2{
- font-family:'Playfair Display',serif;
- color:#ff7abf;
-}
-
-button{
- background:linear-gradient(45deg,#ff2f92,#ff79c6);
- border:none;
- padding:14px 36px;
- border-radius:30px;
- font-size:16px;
- cursor:pointer;
- color:#000;
- box-shadow:0 0 28px rgba(255,47,146,.85);
- transition:.3s;
- margin:16px;
-}
-button:hover{transform:scale(1.1)}
-
-.glass{
- background:rgba(255,20,120,.12);
- backdrop-filter:blur(18px);
- border-radius:24px;
- padding:26px;
- box-shadow:0 0 35px rgba(255,47,146,.55),
- inset 0 0 25px rgba(255,120,180,.15);
- max-width:850px;
- margin:auto;
+/* BUTTON */
+.btn{
+margin-top:20px;
+padding:12px 30px;
+border:none;
+border-radius:30px;
+font-size:16px;
+background:linear-gradient(45deg,#ff4d9d,#ff85c1);
+color:#fff;
+cursor:pointer;
+box-shadow:0 0 20px rgba(255,100,180,.7);
 }
 
-.gallery{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
- gap:16px;
+/* MEDIA */
+img,video{
+width:90%;max-width:420px;
+border-radius:18px;
+margin:12px 0;
+box-shadow:0 0 25px rgba(255,100,180,.8);
 }
 
-.card img, video{
- width:100%;
- border-radius:16px;
- box-shadow:0 0 20px rgba(255,47,146,.45);
-}
-
-.infinity{
- font-size:64px;
- color:#ff2f92;
- text-shadow:0 0 25px rgba(255,47,146,.9);
-}
-
-.firefly{
- position:fixed;
- width:6px;
- height:6px;
- background:#ff79c6;
- border-radius:50%;
- pointer-events:none;
- box-shadow:0 0 12px #ff2f92;
- animation:fade 1s forwards;
-}
-@keyframes fade{to{opacity:0;transform:scale(0)}}
-
-.cursor-glitter{
- position:fixed;
- width:8px;
- height:8px;
- background:radial-gradient(circle,#ff79c6,#ff2f92);
- border-radius:50%;
- pointer-events:none;
- box-shadow:0 0 15px #ff2f92;
- animation:glitterFade .9s forwards;
- z-index:9999;
-}
-@keyframes glitterFade{to{transform:scale(0);opacity:0}}
-
-@keyframes beat{
- 0%{transform:scale(1)}
- 50%{transform:scale(1.15)}
- 100%{transform:scale(1)}
-}
-.heartbeat{animation:beat 1s infinite}
-
-.proposal-btns{
- display:flex;
- justify-content:center;
- gap:20px;
- flex-wrap:wrap;
-}
-#noBtn{position:relative}
-
-#ring{
- font-size:64px;
- display:none;
- animation:beat 1s infinite;
- text-shadow:0 0 25px gold;
-}
-
+/* MUSIC BTN */
 #musicBtn{
- position:fixed;
- bottom:20px;
- right:20px;
- z-index:9999;
+position:fixed;top:15px;right:15px;
+z-index:999;
+background:#ff4d9d;
+padding:10px;border-radius:50%;
 }
+
+/* HEART + ROSE */
+.heart,.petal{
+position:fixed;top:-10px;
+animation:fall 6s linear infinite;
+}
+.heart{font-size:18px}
+.petal{font-size:20px;animation-duration:8s}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+
+/* BUTTERFLY */
+.butterfly{
+position:fixed;font-size:22px;
+animation:fly 15s linear infinite;
+}
+@keyframes fly{
+0%{transform:translate(-10vw,100vh)}
+100%{transform:translate(110vw,-10vh)}
+}
+
+/* FIREWORK */
+.firework{
+position:fixed;
+width:6px;height:6px;
+border-radius:50%;
+background:#ff4d9d;
+animation:explode 1s forwards;
+}
+@keyframes explode{to{transform:scale(25);opacity:0}}
+
+/* RING ANIMATION */
+#ring{
+position:fixed;
+font-size:80px;
+opacity:0;
+animation:ringPop 2.5s forwards;
+filter:drop-shadow(0 0 20px gold);
+}
+@keyframes ringPop{
+0%{transform:scale(0);opacity:0}
+50%{transform:scale(1.2);opacity:1}
+100%{transform:scale(1);opacity:1}
+}
+
+/* NO BUTTON */
+#no{position:absolute}
 </style>
 </head>
 
 <body>
 
+<script>
+const BOY_NAME="Amit";
+const GIRL_NAME="Khushi";
+</script>
+
+<audio id="music" loop>
+<source src="love.mp3" type="audio/mpeg">
+</audio>
+<button id="musicBtn">🎵</button>
+
+<!-- PAGE 1 -->
 <div class="page active">
- <h1 id="type"></h1>
- <h2>9 January 2021</h2>
- <button onclick="nextPage()">CLICK 💕</button>
+<h1 id="names"></h1>
+<p>Since 9 January 2021 💖</p>
+<button class="btn next">Enter ✨</button>
 </div>
 
+<!-- PAGE 2 -->
 <div class="page">
- <div class="glass">
-  <h2>💑 Our Journey</h2>
-  <p>
-   🌌 In a dark and chaotic world, you became my favorite color 🎨,
-   the light ✨ I never knew I was searching for 💫.
-   🤍 Your presence softened my fears, healed silent wounds 💞,
-   and filled my days with warmth 🌸 and meaning 🌷.
-   💭 I never imagined someone could matter this deeply to me,
-   yet here you are—changing my heart ❤️, my thoughts 🫶,
-   and my life 🌍 in the most beautiful way 🌹.
-   🌙 With you, even darkness feels gentle,
-   because love 💖 has your name written all over it ♾️💖
-  </p>
- </div>
- <button onclick="nextPage()">Next 💖</button>
+<h1>📸 Photo Memories</h1>
+<img src="photo1.jpg.jpeg">
+<img src="photo2.jpg.jpeg">
+<button class="btn next">Next ➤</button>
 </div>
 
+<!-- PAGE 3 -->
 <div class="page">
- <h2>📸 Photo Memories</h2>
- <div class="gallery">
-  <div class="glass card">
-   <img src="photo1.jpg">
-   <p>That smile 💗</p>
-  </div>
-  <div class="glass card">
-   <img src="photo2.jpg">
-   <p>My safe place</p>
-  </div>
- </div>
- <button onclick="nextPage()">Next 💕</button>
+<h1>🎥 Video Memory</h1>
+<video src="memory1.mp4" controls></video>
+<button class="btn next">Next ➤</button>
 </div>
 
+<!-- PAGE 4 -->
 <div class="page">
- <h2>🎥 Video Memory</h2>
- <div class="glass">
-  <video controls>
-   <source src="memory1.mp4" type="video/mp4">
-  </video>
- </div>
- <button onclick="nextPage()">Next 💘</button>
-</div>
-
-<div class="page" id="cakePage">
- <div id="cake" class="heartbeat" style="font-size:48px">🎂🕯️🕯️</div>
- <p id="cakeMsg"></p>
- <button onclick="nextPage()">Next ❤️</button>
-</div>
-
-<div class="page">
- <p>
- 💞In duriyo ko karke dur tumhare paas aana chahta hu💞<br>
+<h1>💖 Shayari</h1>
+<p>💞In duriyo ko karke dur tumhare paas aana chahta hu💞<br>
  💞Tere in pyare haatho ka pyaar chahta hu💞<br>
  💞Chahe ruthi rahe mujhse ye saari duniya💞<br>
- 💞Main toh bas tumhara hi saath chahta hu💞
- </p>
- <button onclick="nextPage()">Next 💍</button>
+ 💞Main toh bas tumhara hi saath chahta hu💞</p>
+<button class="btn next">Next ➤</button>
 </div>
 
-<div class="page heartbeat">
- <h2>Will you be mine forever? 💍</h2>
- <div class="proposal-btns">
-  <button onclick="yes()">YES 💖</button>
-  <button id="noBtn" onmouseover="moveNo()" ontouchstart="moveNo()">NO 😜</button>
- </div>
- <div id="ring">💍</div>
- <p id="proposalMsg"></p>
+<!-- PAGE 5 -->
+<div class="page">
+<h1>💌 Message</h1>
+<p>🌌 In a dark and chaotic world, you became my favorite color 🎨, the light ✨ I never knew I was searching for 💫.
+🤍 Your presence softened my fears, healed silent wounds 💞, and filled my days with warmth 🌸 and meaning 🌷.
+💭 I never imagined someone could matter this deeply to me, yet here you are—changing my heart ❤️, my thoughts 🫶, and my life 🌍 in the most beautiful way 🌹.
+🌙 With you, even darkness feels gentle, because love 💖 has your name written all over it ♾️💖❤️</p>
+<button class="btn next">Final Moment 💍</button>
 </div>
 
-<button onclick="toggleMusic()" id="musicBtn">🔊 Play Music</button>
-
-<audio id="bgMusic" loop>
- <source src="love.mp3" type="audio/mpeg">
-</audio>
+<!-- PAGE 6 -->
+<div class="page">
+<h1>Will You Be Mine Forever? 💕</h1>
+<button class="btn" onclick="yesClick()">YES</button>
+<button class="btn" id="no">NO</button>
+</div>
 
 <script>
-/* typing */
-const text="A Love Story That Began On";
-let i=0;
-setInterval(()=>{
- if(i<text.length) document.getElementById("type").innerHTML+=text[i++];
-},90);
+document.getElementById("names").innerText=BOY_NAME+" ❤️ "+GIRL_NAME;
 
-/* pages */
-let page=0;
-const pages=document.querySelectorAll(".page");
-
-/* 🔥 MUSIC FIX */
-let musicStarted=false;
-function startMusic(){
- if(musicStarted) return;
- const m=document.getElementById("bgMusic");
- const b=document.getElementById("musicBtn");
- m.volume=0.7;
- m.play().then(()=>{
-  b.innerText="🔇 Pause Music";
-  musicStarted=true;
- }).catch(()=>{});
+/* STARS */
+for(let i=0;i<120;i++){
+let s=document.createElement("div");
+s.className="star";
+s.style.left=Math.random()*100+"vw";
+s.style.top=Math.random()*100+"vh";
+document.body.appendChild(s);
 }
 
-function nextPage(){
- startMusic();
-
- pages[page].classList.remove("active");
- page++;
- if(page<pages.length) pages[page].classList.add("active");
-
- if(pages[page]?.id==="cakePage"){
-  setTimeout(()=>{
-   cake.innerText="🎂💨";
-   cakeMsg.innerText="My forever wish… you 🖤";
-   confetti();
-  },3000);
- }
-}
-
-/* effects */
-function confetti(){
- for(let i=0;i<60;i++){
-  let f=document.createElement("div");
-  f.className="firefly";
-  f.style.left=Math.random()*100+"vw";
-  f.style.top=Math.random()*100+"vh";
-  document.body.appendChild(f);
-  setTimeout(()=>f.remove(),1000);
- }
-}
-
-document.addEventListener("mousemove",e=>{
- const g=document.createElement("div");
- g.className="cursor-glitter";
- g.style.left=e.clientX+"px";
- g.style.top=e.clientY+"px";
- document.body.appendChild(g);
- setTimeout(()=>g.remove(),900);
+/* NAV */
+let pages=document.querySelectorAll(".page"),i=0;
+document.querySelectorAll(".next").forEach(b=>{
+b.onclick=()=>{pages[i++].classList.remove("active");pages[i].classList.add("active");};
 });
 
-/* music button */
-function toggleMusic(){
- const m=document.getElementById("bgMusic");
- const b=document.getElementById("musicBtn");
- if(m.paused){
-  m.play();
-  b.innerText="🔇 Pause Music";
- }else{
-  m.pause();
-  b.innerText="🔊 Play Music";
- }
+/* SWIPE */
+let sx=0;
+document.addEventListener("touchstart",e=>sx=e.touches[0].clientX);
+document.addEventListener("touchend",e=>{
+if(sx-e.changedTouches[0].clientX>50 && i<pages.length-1){
+pages[i++].classList.remove("active");
+pages[i].classList.add("active");
+}
+});
+
+/* MUSIC */
+musicBtn.onclick=()=>music.paused?music.play():music.pause();
+
+/* HEART + ROSE */
+setInterval(()=>{
+let h=document.createElement("div");
+h.className="heart";h.innerHTML="❤️";
+h.style.left=Math.random()*100+"vw";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),6000);
+},500);
+
+setInterval(()=>{
+let r=document.createElement("div");
+r.className="petal";r.innerHTML="🌹";
+r.style.left=Math.random()*100+"vw";
+document.body.appendChild(r);
+setTimeout(()=>r.remove(),8000);
+},1200);
+
+/* BUTTERFLIES */
+for(let j=0;j<8;j++){
+let b=document.createElement("div");
+b.className="butterfly";b.innerHTML="🦋";
+document.body.appendChild(b);
 }
 
-/* proposal */
-function yes(){
- ring.style.display="block";
- proposalMsg.innerText="Engaged Forever ♾️💖";
- confetti();
+/* NO BUTTON MOVE */
+const no=document.getElementById("no");
+setInterval(()=>{
+no.style.left=Math.random()*80+"%";
+no.style.top=Math.random()*80+"%";
+},700);
+
+/* YES CLICK */
+function yesClick(){
+for(let k=0;k<30;k++){
+let f=document.createElement("div");
+f.className="firework";
+f.style.left=Math.random()*100+"vw";
+f.style.top=Math.random()*100+"vh";
+document.body.appendChild(f);
+setTimeout(()=>f.remove(),1000);
 }
 
-function moveNo(){
- noBtn.style.transform=`translate(${Math.random()*200-100}px,${Math.random()*200-100}px)`;
+/* RING */
+let ring=document.createElement("div");
+ring.id="ring";
+ring.innerHTML="💍";
+ring.style.left="50%";
+ring.style.top="50%";
+ring.style.transform="translate(-50%,-50%)";
+document.body.appendChild(ring);
+
+setTimeout(()=>alert("She said YES ❤️✨"),1200);
 }
 </script>
 
